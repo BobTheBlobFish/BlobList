@@ -1,104 +1,88 @@
-📁 Project Management Dashboard – Complete Build
-This repository contains the full codebase for a Project Management Dashboard built with modern web technologies, integrating scalable cloud services and real-time functionality. It includes setup instructions, environment configuration, and deployment steps for a complete end-to-end project.
+# 🗂️ Project Management Dashboard
 
-🧰 Tech Stack
-Frontend:
+This repository contains a complete **Project Management Dashboard** built using modern full-stack technologies. It features a powerful frontend, a scalable backend, PostgreSQL database integration, and deployment-ready configuration with AWS cloud services.
 
-Next.js
+---
 
-Tailwind CSS
+## 🧰 Tech Stack
 
-Redux Toolkit & Redux Toolkit Query
+### Frontend
+- **Next.js 15**
+- **React 19**
+- **Tailwind CSS**
+- **Redux Toolkit & Redux Toolkit Query**
+- **Material UI Data Grid**
 
-Material UI Data Grid
+### Backend
+- **Node.js** with **Express**
+- **Prisma** (ORM for PostgreSQL)
 
-Backend:
+### Database
+- **PostgreSQL**, managed via **PgAdmin**
 
-Node.js with Express
+### Cloud Infrastructure
+- **AWS EC2** (Application Hosting)
+- **AWS RDS** (PostgreSQL Database)
+- **AWS S3** (File Storage)
+- **AWS Lambda** (Serverless Functions)
+- **AWS Amplify** (Frontend Hosting)
+- **AWS API Gateway** (API Management)
+- **AWS Cognito** (User Authentication)
 
-Prisma ORM (PostgreSQL)
+---
 
-Database:
+## ⚙️ Getting Started
 
-PostgreSQL, managed via PgAdmin
+Follow the steps below to set up the project locally.
 
-Cloud & DevOps:
+### ✅ Prerequisites
 
-AWS EC2, RDS, API Gateway, Amplify, S3, Lambda, Cognito
+Ensure the following tools are installed on your system:
 
-⚙️ Getting Started
-✅ Prerequisites
-Ensure the following are installed on your system:
+- [Git](https://git-scm.com/)
+- [Node.js & npm](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [PgAdmin](https://www.pgadmin.org/)
 
-Git
+---
 
-Node.js
+### 📥 Installation & Setup
 
-npm
-
-PostgreSQL
-
-PgAdmin
-
-📦 Installation
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone [repo-url]
+```bash
+# 1. Clone the repository
+git clone [your-repo-url]
 cd project-management
-Install dependencies for both frontend and backend:
 
-bash
-Copy
-Edit
+# 2. Install dependencies
+
+# For client
 cd client
 npm install
+
+# For server
 cd ../server
 npm install
-Set up the database:
 
-bash
-Copy
-Edit
+# 3. Set up the database
 npx prisma generate
 npx prisma migrate dev --name init
 npm run seed
-Configure environment variables:
 
-server/.env – for PORT, DATABASE_URL
+# 4. Configure environment variables
 
-client/.env.local – for NEXT_PUBLIC_API_BASE_URL
+# Create server/.env with the following:
+PORT=8000
+DATABASE_URL=postgresql://<username>:<password>@<host>:5432/<db_name>
 
-Start the development servers:
+# Create client/.env.local with the following:
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 
-bash
-Copy
-Edit
+# 5. Start the development servers
+
+# Start the backend
+cd server
 npm run dev
-📚 Additional Resources
-Complete code and configuration files
 
-Tailwind config & global styles (globals.css)
-
-Redux Toolkit setup
-
-Seed files and sample data
-
-Gantt chart styling and dependencies
-
-🗃 Database Management
-To reset a PostgreSQL ID sequence:
-
-sql
-Copy
-Edit
-SELECT setval(
-  pg_get_serial_sequence('"[DATA_MODEL_NAME_HERE]"', 'id'),
-  coalesce(max(id)+1, 1),
-  false
-) FROM "[DATA_MODEL_NAME_HERE]";
-
-
-NOTE: The application is currently facing an issue due to an AWS change with Cognito. Deployed AWS URL is- https://main.d1r9lkqxzptla.amplifyapp.com
+# In a new terminal, start the frontend
+cd ../client
+npm run dev
