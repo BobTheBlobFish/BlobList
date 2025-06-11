@@ -85,4 +85,6 @@ npm run dev
 
 # In a new terminal, start the frontend
 cd ../client
-npm run dev
+npm run dev 
+```
+**NOTE** : The application is currently facing an authorization bug due to an AWS Cognito update, which resulting in users not being able to login. Here is the link deployed on Amplify AWS anyways: https://main.d1r9lkqxzptla.amplifyapp.com
